@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-  {% include head.html %}
-
-  <body>
-
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
-
-    {% include footer.html %}
-
-  </body>
-
-</html>
+{% include head.html %}
+	{% include header.html %}
+  <main id="content" role="main" class="page clearfix mx-auto max-width-3">
+      <article class="recipe-article">
+  			{{ content }}
+      </article>
+	</main>
+{% include footer.html %}
