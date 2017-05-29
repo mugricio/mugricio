@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<script async src="https://cdn.ampproject.org/v0.js"></script>
-		<title>{% if page.title %}{{ page.title }} | {{ site.title }}.com  {% else %}{{ site.title }}.com{% endif %}</title>
+		<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 		<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
 		<style amp-boilerplate="">
