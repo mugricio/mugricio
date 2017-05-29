@@ -1,23 +1,43 @@
 ---
-layout: default
+layout: home
+sitemap:
+  priority: 0.9
+  changefreq: 'daily'
+excluir: 'si'
+tipo: 'index'
 ---
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<div class="cards clearfix flex flex-wrap mxn2 mt4 mb2">
+  {% for post in paginator.posts %}
+  <div class="col-12 sm-col-6 md-col-4 lg-col-4">
+    <div class="card relative overflow-hidden bg-white border border-gray rounded mx2 mb3">
+      <a class="block black text-decoration-none" href="{{ post.url | prepend: site.baseurl }}">
+        <amp-img src="{{ post.image }}" width="320" height="320" layout="responsive" class="mx-auto block fit" alt="{{ post.alt }}" title="{{ post.title }}"></amp-img>
+        <div class="p2 absolute bottom-0 left-0 right-0 white bg-darken-4">
+          <h2 class="m0 h4">
+            {{ post.title }}
+          </h1>
+        </div>
+        <div class="p0">
+          <p class="absolute top-0 left-0 mx1 my2 h5 px1 bg-blue white rounded">
+            {% if post.tags %}
+              {% for tag in post.tags limit:1 %}
+              <i class="fa fa-tag" aria-hidden="true"></i> {{ tag }}
+              {% endfor %}
+            {% endif %}
+          </p>
+        </div></a></div>
+  </div>
+  {% endfor %}
+</div>
+<div class="more mb4 pb4">
+  {% if paginator.previous_page %}
+  <button class="button left">
+    <a href="{{ paginator.previous_page_path }}" class="text-decoration-none">&larr; Anterior</a>
+  </button>
+  {% endif %}
+  {% if paginator.next_page %}
+  <button class="button right pr2">
+    <a href="{{ paginator.next_page_path }}" class="text-decoration-none">Siguiente &rarr;</a>
+  </button>
+  {% endif %}
 </div>
