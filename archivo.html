@@ -1,0 +1,18 @@
+---
+layout: page
+title: Archivo
+permalink: /archivo/
+tipo: 'archivo'
+---
+<ul class="p0 m0 lista-reset1">
+	 {% for post in site.posts %}
+		<li class="separator p0 m0 lista-reset2">
+			<a class="text-decoration-none" href="{{ post.url }}">{{ post.title }}</a>
+      &nbsp;
+      <small class="right">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        {{ post.date | date: "%d-%m-%Y" }}
+      </small>
+		</li>
+	 {% endfor %}
+</ul>
