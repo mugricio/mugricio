@@ -9,13 +9,13 @@
       {% for node in site.pages %}
         {% unless node.excluir == 'si' %}
             {% if node.url == page.url %}
-                <li class="ampstart-nav-item www-current-page">
+                <li class="ampstart-nav-item www-current-page h1-title">
                   <a href="{{ node.url }}" class="text-decoration-none block">
                     {{ node.title }}
                   </a>
                 </li>
             {% else %}
-                <li class="ampstart-nav-item">
+                <li class="ampstart-nav-item h1-title">
                   <a href="{{ node.url }}" class="text-decoration-none block">
                     {{ node.title }}
                   </a>
@@ -34,7 +34,7 @@
   <ul class="list-reset m0 p0 caps h5">
     {% for page in site.pages %}
     {% unless page.excluir == 'si' %}
-      <li class="ampstart-nav-item">
+      <li class="ampstart-nav-item h1-title">
         <a href="{{ page.url }}">
           {{ page.title }}
         </a>
