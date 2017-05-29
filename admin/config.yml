@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: mugricio/mugricio
+  branch: master
+media_folder: "images"
+collections:
+- name: "post" # Used in routes, e.g. /admin/collections/blog
+  label: "Post" # Used in the UI
+  folder: "_posts" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template i.e. YYYY-MM-DD-title.md
+  fields: # The fields for each document, usually in front matter
+    - {label: "Plantilla", name: "layout", widget: "hidden", default: "post"}
+    - {label: "Título", name: "title", widget: "string"}
+    - {label: "Fecha de publicación", name: "date", widget: "datetime"}
+    - {label: "Imagen chica (320x320 px)", name: "image", widget: "image"}
+    - {label: "Imagen grande 696x696 px)", name: "imagefull", widget: "image"}
+    - {label: "Alt", name: "alt", widget: "string"}
+    - {label: "Descripción", name: "descripcion", widget: "string"}
+    - {label: "Contenido", name: "body", widget: "markdown"}
