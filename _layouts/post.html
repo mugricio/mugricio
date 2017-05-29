@@ -1,15 +1,42 @@
 ---
 layout: default
+tipo: 'post'
 ---
-<div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
-
-  <article class="post-content">
-    {{ content }}
-  </article>
-
-</div>
+	<header>
+	  <span class="ampstart-accent block px3 pt2 mb2"><!-- META CATEGORÍAS --></span>
+	  <h1 class="mb1 px2 caps center">
+      {{ page.title }}
+    </h1>
+	  <!-- Start byline -->
+	  <address class="ampstart-byline clearfix mb4 px3 h5">
+  		<time class="ampstart-byline-pubdate block center my1" datetime="{{ page.date | date: "%d-%m-%Y" }}">
+        <i class="fa fa-calendar" aria-hidden="true"></i> Publicado el {{ page.date | date: "%d/%m/%Y" }}
+      </time>
+	  </address>
+	  <!-- End byline -->
+	</header>
+	<section class="px2 mb3">
+		<div class="imagen-post max-width-2 self-center">
+			<amp-img src="{{ page.imagefull }}" width="696" height="696" layout="responsive" class="mx-auto block fit" alt="{{ page.alt }}" title="{{ page.alt }}"></amp-img>
+		</div>
+		<div class="pt3">
+			{{ content }}
+		</div>
+	</section>
+<!-- share -->
+<section class="px2 mb3">
+    <h2 class="mb3">
+      <i class="fa fa-share-square-o" aria-hidden="true"></i> Compartilo en redes sociales
+    </h2>
+    <ul class="ampstart-social-follow list-reset flex justify-around items-center flex-wrap m0 mb4">
+      <li class="mr2">
+        <amp-social-share type="twitter" width="44" height="44"></amp-social-share>
+      </li>
+      <li class="mr2">
+        <amp-social-share type="facebook" width="44" height="44" data-param-app_id="365849057145512"></amp-social-share>
+      </li>
+      <li class="mr2">
+        <amp-social-share type="whatsapp" width="44" height="44"></amp-social-share>
+      </li>
+    </ul>
+</section>
