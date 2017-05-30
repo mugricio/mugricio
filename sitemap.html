@@ -1,0 +1,33 @@
+---
+layout: page
+title: Mapa del Sitio
+permalink: /sitemap.html
+sitemap:
+  exclude: 'yes'
+excluir: 'si'
+---
+<h2><i class="fa fa-file-o" aria-hidden="true"></i> Entradas</h2>
+<ul class="p0 m0 lista-reset1">
+	 {% for post in site.posts %}
+		<li class="separator p0 m0 lista-reset2">
+			<a class="text-decoration-none" href="{{ post.url }}">{{ post.title }}</a>
+      &nbsp;
+      <small class="right">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        {{ post.date | date: "%d-%m-%Y" }}
+      </small>
+		</li>
+	 {% endfor %}
+</ul>
+
+
+<h2><i class="fa fa-file-o" aria-hidden="true"></i> Páginas</h2>
+<ul class="p0 m0 lista-reset1">
+	 {% for page in site.pages %}
+    {% unless page.excluir == 'si' %}
+		<li class="separator p0 m0 lista-reset2">
+			<a class="text-decoration-none" href="{{ page.url }}">{{ page.title }}</a>
+  	</li>
+    {% endunless %}
+	 {% endfor %}
+</ul>
